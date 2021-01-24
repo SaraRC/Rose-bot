@@ -5,7 +5,7 @@ require('dotenv').config();
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const auth = require('auth.json');
+const auth = require('./auth.json');
 
 const commands = require('./commands.js');
 
