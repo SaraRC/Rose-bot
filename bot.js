@@ -30,6 +30,7 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
+	console.log(msg.content);
 	if (msg.content.startsWith(process.env.COMMAND_PREFIX)) {
 		//commands[msg.content.slice(1, msg.content.length)](msg);
 		//TODO: Actual error handling for nonexistant command names.
