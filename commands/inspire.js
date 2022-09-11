@@ -24,7 +24,7 @@ module.exports = {
 				console.log("Data: ")
 				process.stdout.write(d);
 				imageurl = d;
-				console.log("Image URL inside:" + d);
+				console.log("Image URL at: " + d);
 				msg.channel.send(`${d}`);
 		});	
 		});	
