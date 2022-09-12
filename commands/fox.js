@@ -3,6 +3,8 @@ const { syncBuiltinESMExports } = require('module');
 const fs = require('fs').promises;
 //const Discord = require('discord.js');
 
+const cmdData = require('./fox.json');
+
 module.exports = {
 	name: "fox",
 	
@@ -17,6 +19,8 @@ module.exports = {
 			path: "/img?animal=fox",
 			method: "GET"
 		}
+
+		msg.channel.send(cmdData.QUOTES[0]);
 	
 		const req = https.request(options, res => {
 			//console.log("recieved response.")
@@ -25,6 +29,7 @@ module.exports = {
 
 			imgurl = "https://api.tinyfox.dev/" + res.headers['content-disposition'].slice(21, -1);
 			console.log("Image URL at: " + imgurl);
+			
 			msg.channel.send(`${imgurl}`);
 
 			res.on('data', (d) => {
@@ -41,8 +46,6 @@ module.exports = {
 			console.error(e);
 		});	
 		req	.end();
-
-		msg.channel.send({ files: [{ attachment: 'img.jpg' }] });
 
 		}
 }
